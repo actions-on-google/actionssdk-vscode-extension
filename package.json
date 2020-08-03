@@ -1,0 +1,23 @@
+{
+  "name": "actions-sdk-vscode-extension",
+  "displayName": "YAML Snippets for Actions SDK",
+  "description": "YAML Snippets for Actions SDK",
+  "version": "0.0.1",
+  "private": "true",
+  "license": "Apache-2.0",
+  "publisher": "Google LLC",
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "yaml",
+        "path": "./snippets/actions-sdk-snippets.json"
+      }
+    ]
+  }
+}
