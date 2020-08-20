@@ -1,16 +1,18 @@
 {
   "name": "actions-sdk-vscode-extension",
-  "displayName": "YAML Snippets for Actions SDK",
-  "description": "YAML Snippets for Actions SDK",
+  "displayName": "Actions SDK",
+  "description": "VSCode extension for Actions SDK",
   "version": "0.0.1",
-  "private": "true",
-  "license": "Apache-2.0",
   "publisher": "Google LLC",
   "engines": {
     "vscode": "^1.28.0"
   },
   "categories": [
-    "Snippets"
+    "Snippets",
+    "Other"
+  ],
+  "extensionDependencies": [
+    "redhat.vscode-yaml"
   ],
   "contributes": {
     "snippets": [
@@ -18,6 +20,73 @@
         "language": "yaml",
         "path": "./snippets/actions-sdk-snippets.json"
       }
+    ],
+    "yamlValidation": [
+      {
+        "fileMatch": "settings/*.yaml",
+        "url": "./schema/settings.json"
+      },
+      {
+        "fileMatch": "settings/**/*.yaml",
+        "url": "./schema/localizedSettings.json"
+      },
+
+      {
+        "fileMatch": "actions/*.yaml",
+        "url": "./schema/actions.json"
+      },
+      {
+        "fileMatch": "actions/**/*.yaml",
+        "url": "./schema/actions.json"
+      },
+
+      {
+        "fileMatch": "webhooks/*.yaml",
+        "url": "./schema/webhook.json"
+      },
+
+      {
+        "fileMatch": "custom/intents/*.yaml",
+        "url": "./schema/intent.json"
+      },
+      {
+        "fileMatch": "custom/intents/**/*.yaml",
+        "url": "./schema/intent.json"
+      },
+
+      {
+        "fileMatch": "custom/global/*.yaml",
+        "url": "./schema/global.json"
+      },
+
+      {
+        "fileMatch": "custom/prompts/*.yaml",
+        "url": "./schema/prompt.json"
+      },
+      {
+        "fileMatch": "custom/prompts/**/*.yaml",
+        "url": "./schema/prompt.json"
+      },
+
+      {
+        "fileMatch": "custom/scenes/*.yaml",
+        "url": "./schema/scene.json"
+      },
+
+      {
+        "fileMatch": "custom/types/*.yaml",
+        "url": "./schema/type.json"
+      },
+      {
+        "fileMatch": "custom/types/**/*.yaml",
+        "url": "./schema/type.json"
+      },
+
+      {
+        "fileMatch": "manifest.yaml",
+        "url": "./schema/manifest.json"
+      }
+
     ]
   }
 }
