@@ -1,1 +1,268 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkSettings",
+  "properties": {
+    "projectId": {
+      "description": "Actions project id.",
+      "type": "string"
+    },
+    "defaultLocale": {
+      "description": "Locale which is default for the project. For all files except under resources/ with no locale in the path, the localized data is attributed to this default_locale. For files under resources/ no locale means that the resource is applicable to all locales.",
+      "type": "string"
+    },
+    "enabledRegions": {
+      "description": "Represents the regions where users can invoke your Actions, which is based on the user's location of presence. Cannot be set if disabled_regions is set. If both enabled_regions and disabled_regions are not specified, users can invoke your Actions in all regions. Each region is represented using the Canonical Name of Adwords geotargets. See https://developers.google.com/adwords/api/docs/appendix/geotargeting Examples include: - \"Germany\" - \"Ghana\" - \"Greece\" - \"Grenada\" - \"United Kingdom\" - \"United States\" - \"United States Minor Outlying Islands\" - \"Uruguay\"",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "disabledRegions": {
+      "description": "Represents the regions where your Actions are blocked, based on the user's location of presence. Cannot be set if enabled_regions is set. Each region is represented using the Canonical Name of Adwords geotargets. See https://developers.google.com/adwords/api/docs/appendix/geotargeting Examples include: - \"Germany\" - \"Ghana\" - \"Greece\" - \"Grenada\" - \"United Kingdom\" - \"United States\" - \"United States Minor Outlying Islands\" - \"Uruguay\"",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category": {
+      "description": "The category for this Actions project.",
+      "type": "string",
+      "enum": [
+        "CATEGORY_UNSPECIFIED",
+        "BUSINESS_AND_FINANCE",
+        "EDUCATION_AND_REFERENCE",
+        "FOOD_AND_DRINK",
+        "GAMES_AND_TRIVIA",
+        "HEALTH_AND_FITNESS",
+        "KIDS_AND_FAMILY",
+        "LIFESTYLE",
+        "LOCAL",
+        "MOVIES_AND_TV",
+        "MUSIC_AND_AUDIO",
+        "NEWS",
+        "NOVELTY_AND_HUMOR",
+        "PRODUCTIVITY",
+        "SHOPPING",
+        "SOCIAL",
+        "SPORTS",
+        "TRAVEL_AND_TRANSPORTATION",
+        "UTILITIES",
+        "WEATHER",
+        "HOME_CONTROL"
+      ]
+    },
+    "usesTransactionsApi": {
+      "description": "Whether Actions can use transactions (for example, making reservations, taking orders, etc.). If false, then attempts to use the Transactions APIs fail.",
+      "type": "boolean"
+    },
+    "usesDigitalPurchaseApi": {
+      "description": "Whether Actions can perform transactions for digital goods.",
+      "type": "boolean"
+    },
+    "usesInteractiveCanvas": {
+      "description": "Whether Actions use Interactive Canvas.",
+      "type": "boolean"
+    },
+    "usesHomeStorage": {
+      "description": "Whether Actions use the home storage feature.",
+      "type": "boolean"
+    },
+    "designedForFamily": {
+      "description": "Whether Actions content is designed for family (DFF).",
+      "type": "boolean"
+    },
+    "containsAlcoholOrTobaccoContent": {
+      "description": "Whether Actions contains alcohol or tobacco related content.",
+      "type": "boolean"
+    },
+    "keepsMicOpen": {
+      "description": "Whether Actions may leave mic open without an explicit prompt during conversation.",
+      "type": "boolean"
+    },
+    "surfaceRequirements": {
+      "description": "The surface requirements that a client surface must support to invoke Actions in this project.",
+      "type": "object",
+      "properties": {
+        "minimumRequirements": {
+          "description": "The minimum set of capabilities needed to invoke the Actions in your project. If the surface is missing any of these, the Action will not be triggered.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capability": {
+                "description": "The type of capability.",
+                "type": "string",
+                "enum": [
+                  "SURFACE_CAPABILITY_UNSPECIFIED",
+                  "AUDIO_OUTPUT",
+                  "SCREEN_OUTPUT",
+                  "MEDIA_RESPONSE_AUDIO",
+                  "WEB_BROWSER",
+                  "ACCOUNT_LINKING",
+                  "INTERACTIVE_CANVAS",
+                  "HOME_STORAGE"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "testingInstructions": {
+      "description": "Free-form testing instructions for Actions reviewer (for example, account linking instructions).",
+      "type": "string"
+    },
+    "localizedSettings": {
+      "description": "Localized settings for the project's default locale. Every additional locale should have its own settings file in its own directory.",
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "description": "Required. The default display name for this Actions project (if there is no translation available)",
+          "type": "string"
+        },
+        "pronunciation": {
+          "description": "Required. The pronunciation of the display name to invoke it within a voice (spoken) context.",
+          "type": "string"
+        },
+        "shortDescription": {
+          "description": "Required. The default short description for the Actions project (if there is no translation available). 80 character limit.",
+          "type": "string"
+        },
+        "fullDescription": {
+          "description": "Required. The default long description for the Actions project (if there is no translation available). 4000 character limit.",
+          "type": "string"
+        },
+        "smallLogoImage": {
+          "description": "Required. Small square image, 192 x 192 px.",
+          "type": "string"
+        },
+        "largeBannerImage": {
+          "description": "Optional. Large landscape image, 1920 x 1080 px.",
+          "type": "string"
+        },
+        "developerName": {
+          "description": "Required. The name of the developer to be displayed to users.",
+          "type": "string"
+        },
+        "developerEmail": {
+          "description": "Required. The contact email address for the developer.",
+          "type": "string"
+        },
+        "termsOfServiceUrl": {
+          "description": "Optional. The terms of service URL.",
+          "type": "string"
+        },
+        "voice": {
+          "description": "Required. The Google Assistant voice type that users hear when they interact with your Actions. The supported values are \"male_1\", \"male_2\", \"female_1\", and \"female_2\".",
+          "type": "string"
+        },
+        "voiceLocale": {
+          "description": "Optional. The locale for the specified voice. If not specified, this resolves to the user's Assistant locale. If specified, the voice locale must have the same root language as the locale specified in LocalizedSettings.",
+          "type": "string"
+        },
+        "privacyPolicyUrl": {
+          "description": "Required. The privacy policy URL.",
+          "type": "string"
+        },
+        "sampleInvocations": {
+          "description": "Required. Sample invocation phrases displayed as part of your Actions project's description in the Assistant directory. This will help users learn how to use it.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "themeCustomization": {
+          "description": "Optional. Theme customizations for visual components of your Actions.",
+          "type": "object",
+          "properties": {
+            "backgroundColor": {
+              "description": "Background color of cards. Acts as a fallback if background_image is not provided by developers or background_image doesn't fit for certain surfaces. Example usage: #FAFAFA",
+              "type": "string"
+            },
+            "primaryColor": {
+              "description": "Primary theme color of the Action will be used to set text color of title, action item background color for Actions on Google cards. Example usage: #FAFAFA",
+              "type": "string"
+            },
+            "fontFamily": {
+              "description": "The font family that will be used for title of cards. Supported fonts: - Sans Serif - Sans Serif Medium - Sans Serif Bold - Sans Serif Black - Sans Serif Condensed - Sans Serif Condensed Medium - Serif - Serif Bold - Monospace - Cursive - Sans Serif Smallcaps",
+              "type": "string"
+            },
+            "imageCornerStyle": {
+              "description": "Border style of foreground image of cards. For example, can be applied on the foreground image of a basic card or carousel card.",
+              "type": "string",
+              "enum": [
+                "IMAGE_CORNER_STYLE_UNSPECIFIED",
+                "CURVED",
+                "ANGLED"
+              ]
+            },
+            "landscapeBackgroundImage": {
+              "description": "Landscape mode (minimum 1920x1200 pixels).",
+              "type": "string"
+            },
+            "portraitBackgroundImage": {
+              "description": "Portrait mode (minimum 1200x1920 pixels).",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "accountLinking": {
+      "description": "Allow users to create or link accounts through Google sign-in and/or your own OAuth service.",
+      "type": "object",
+      "properties": {
+        "enableAccountCreation": {
+          "description": "Required. If true, users are allowed to sign up for new accounts via voice. If false, account creation is only allowed on your website. Select this option if you want to display your terms of service or obtain user consents during sign-up. linking_type cannot be GOOGLE_SIGN_IN when this is false. linking_type cannot be OAUTH when this is true.",
+          "type": "boolean"
+        },
+        "linkingType": {
+          "description": "Required. The linking type to use. See https://developers.google.com/assistant/identity for further details on the linking types.",
+          "type": "string",
+          "enum": [
+            "LINKING_TYPE_UNSPECIFIED",
+            "GOOGLE_SIGN_IN",
+            "OAUTH_AND_GOOGLE_SIGN_IN",
+            "OAUTH"
+          ]
+        },
+        "authGrantType": {
+          "description": "Optional. Indicates the type of authentication for OAUTH linking_type.",
+          "type": "string",
+          "enum": [
+            "AUTH_GRANT_TYPE_UNSPECIFIED",
+            "AUTH_CODE",
+            "IMPLICIT"
+          ]
+        },
+        "appClientId": {
+          "description": "Optional. Client ID issued by your App to Google. This is the OAuth2 Client ID identifying Google to your service. Only set when using OAuth.",
+          "type": "string"
+        },
+        "authorizationUrl": {
+          "description": "Optional. Endpoint for your sign-in web page that supports OAuth2 code or implicit flows. URL must use HTTPS. Only set when using OAuth.",
+          "type": "string"
+        },
+        "tokenUrl": {
+          "description": "Optional. OAuth2 endpoint for token exchange. URL must use HTTPS. This is not set when only using OAuth with IMPLICIT grant as the linking type. Only set when using OAuth.",
+          "type": "string"
+        },
+        "scopes": {
+          "description": "Optional. List of permissions the user must consent to in order to use your service. Only set when using OAuth. Make sure to provide a Terms of Service in the directory information in LocalizedSettings.terms_of_service_url section if specifying this field.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "learnMoreUrl": {
+          "description": "Optional. This is the web page on your service which describes the permissions the user is granting to Google. Only set if using OAuth and Google Sign In. Make sure to provide a Terms of Service in the directory information in LocalizedSettings.terms_of_service_url section if specifying this field.",
+          "type": "string"
+        },
+        "useBasicAuthHeader": {
+          "description": "Optional. If true, allow Google to transmit client ID and secret via HTTP basic auth header. Otherwise, Google uses the client ID and secret inside the post body. Only set when using OAuth. Make sure to provide a Terms of Service in the directory information in LocalizedSettings.terms_of_service_url section if specifying this field.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

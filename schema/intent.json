@@ -1,1 +1,40 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkInteractionmodelIntent",
+  "properties": {
+    "parameters": {
+      "description": "The list of parameters within the training phrases. All parameters must be defined here to be used in the training phrase.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Required. Unique name of the intent parameter. Can be used in conditions and responses to reference intent parameters extracted by NLU with $intent.params.[name].resolved",
+            "type": "string"
+          },
+          "type": {
+            "description": "Required. Declares the data type of this parameter.",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Required. Name of a built-in type or custom type of the parameter. Examples: \"PizzaToppings\", \"actions.type.Number\"",
+                "type": "string"
+              },
+              "list": {
+                "description": "Optional. Indicates whether the data type represents a list of values.",
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "trainingPhrases": {
+      "description": "Training phrases allow Google\u2019s NLU to automatically match intents with user input. The more unique phrases that are provided, the better chance this intent will be matched. The following is the format of training phrase part which are annotated. Note that \"auto\" field is optional and the default behavior when \"auto\" is not specified is equivalent to \"auto=false\". \"($ '' auto=)\" 'auto = true' means the part was auto annotated by NLU. 'auto = false' means the part was annotated by the user. This is the default when auto is not specified. Example: \"Book a flight from ($source 'San Francisco' auto=false) to ($dest 'Vancouver')\"",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

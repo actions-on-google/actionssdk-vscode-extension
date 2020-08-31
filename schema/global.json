@@ -1,1 +1,604 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkInteractionmodelGlobalIntentEvent",
+  "properties": {
+    "transitionToScene": {
+      "description": "Optional. Destination scene which the conversation should jump to. The state of the current scene is destroyed on the transition.",
+      "type": "string"
+    },
+    "handler": {
+      "description": "Optional. Event handler which is triggered when the intent is matched. Should execute before transitioning to the destination scene. Useful to generate Prompts in response to events.",
+      "type": "object",
+      "properties": {
+        "webhookHandler": {
+          "description": "Name of the webhook handler to call.",
+          "type": "string"
+        },
+        "staticPrompt": {
+          "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+          "type": "object",
+          "properties": {
+            "candidates": {
+              "description": "The list of candidate prompts to be sent to the client. Each prompt has a selector to determine when it can be used. The first selector that matches a request will be sent and the rest will be ignored.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "selector": {
+                    "description": "Optional. The criteria for whether this prompt matches a request. If the selector is empty, this prompt will always be triggered.",
+                    "type": "object",
+                    "properties": {
+                      "surfaceCapabilities": {
+                        "description": "The set of required surface capabilities.",
+                        "type": "object",
+                        "properties": {
+                          "capabilities": {
+                            "description": "Required. The capabilities of the surface making a request to the Action.",
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "UNSPECIFIED",
+                                "SPEECH",
+                                "RICH_RESPONSE",
+                                "LONG_FORM_AUDIO",
+                                "INTERACTIVE_CANVAS",
+                                "WEB_LINK",
+                                "HOME_STORAGE"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "promptResponse": {
+                    "description": "The prompt response associated with the selector.",
+                    "type": "object",
+                    "properties": {
+                      "firstSimple": {
+                        "description": "Optional. The first voice and text-only response.",
+                        "type": "object",
+                        "properties": {
+                          "variants": {
+                            "description": "List of possible variants.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "speech": {
+                                  "description": "Optional. Represents the speech to be spoken to the user. Can be SSML or text to speech. By default, speech will be appended to previous Simple prompt's speech. If the \"override\" field in the containing prompt is \"true\" the speech defined in this field will override previous Simple prompt's speech.",
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "description": "Optional. Text to display in the chat bubble. If not given, a display rendering of the speech field above will be used. Limited to 640 chars. By default, text will be appended to previous Simple prompt's text. If the \"override\" field in the containing prompt is \"true\" the text defined in this field will override previous Simple prompt's text.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "content": {
+                        "description": "Optional. A content like a card, list or media to display to the user.",
+                        "type": "object",
+                        "properties": {
+                          "card": {
+                            "description": "A basic card.",
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "description": "Optional. Overall title of the card.",
+                                "type": "string"
+                              },
+                              "subtitle": {
+                                "description": "Optional. Subtitle of the card.",
+                                "type": "string"
+                              },
+                              "text": {
+                                "description": "Required. Body text of the card which is needed unless image is present. Supports a limited set of markdown syntax for formatting.",
+                                "type": "string"
+                              },
+                              "image": {
+                                "description": "Optional. A hero image for the card. The height is fixed to 192dp.",
+                                "type": "object",
+                                "properties": {
+                                  "url": {
+                                    "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                    "type": "string"
+                                  },
+                                  "alt": {
+                                    "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                    "type": "string"
+                                  },
+                                  "height": {
+                                    "description": "Optional. The height of the image in pixels.",
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "width": {
+                                    "description": "Optional. The width of the image in pixels.",
+                                    "type": "integer",
+                                    "format": "int32"
+                                  }
+                                }
+                              },
+                              "imageFill": {
+                                "description": "Optional. How the image background will be filled.",
+                                "type": "string",
+                                "enum": [
+                                  "UNSPECIFIED",
+                                  "GRAY",
+                                  "WHITE",
+                                  "CROPPED"
+                                ]
+                              },
+                              "button": {
+                                "description": "Optional. A clickable button to be shown in the Card.",
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "description": "Name of the link",
+                                    "type": "string"
+                                  },
+                                  "open": {
+                                    "description": "Defines behavior when the user opens the link.",
+                                    "type": "object",
+                                    "properties": {}
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "image": {
+                            "description": "An image.",
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                "type": "string"
+                              },
+                              "alt": {
+                                "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                "type": "string"
+                              },
+                              "height": {
+                                "description": "Optional. The height of the image in pixels.",
+                                "type": "integer",
+                                "format": "int32"
+                              },
+                              "width": {
+                                "description": "Optional. The width of the image in pixels.",
+                                "type": "integer",
+                                "format": "int32"
+                              }
+                            }
+                          },
+                          "table": {
+                            "description": "Table card.",
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "description": "Optional. Overall title of the table. Must be set if subtitle is set.",
+                                "type": "string"
+                              },
+                              "subtitle": {
+                                "description": "Optional. Subtitle for the table.",
+                                "type": "string"
+                              },
+                              "image": {
+                                "description": "Optional. Image associated with the table.",
+                                "type": "object",
+                                "properties": {
+                                  "url": {
+                                    "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                    "type": "string"
+                                  },
+                                  "alt": {
+                                    "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                    "type": "string"
+                                  },
+                                  "height": {
+                                    "description": "Optional. The height of the image in pixels.",
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "width": {
+                                    "description": "Optional. The width of the image in pixels.",
+                                    "type": "integer",
+                                    "format": "int32"
+                                  }
+                                }
+                              },
+                              "columns": {
+                                "description": "Optional. Headers and alignment of columns.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "header": {
+                                      "description": "Header text for the column.",
+                                      "type": "string"
+                                    },
+                                    "align": {
+                                      "description": "Horizontal alignment of content w.r.t column. If unspecified, content will be aligned to the leading edge.",
+                                      "type": "string",
+                                      "enum": [
+                                        "UNSPECIFIED",
+                                        "LEADING",
+                                        "CENTER",
+                                        "TRAILING"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "rows": {
+                                "description": "Optional. Row data of the table. The first 3 rows are guaranteed to be shown but others might be cut on certain surfaces. Please test with the simulator to see which rows will be shown for a given surface. On surfaces that support the WEB_BROWSER capability, you can point the user to a web page with more data.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "cells": {
+                                      "description": "Cells in this row. The first 3 cells are guaranteed to be shown but others might be cut on certain surfaces. Please test with the simulator to see which cells will be shown for a given surface.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "text": {
+                                            "description": "Text content of the cell.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "divider": {
+                                      "description": "Indicates whether there should be a divider after each row.",
+                                      "type": "boolean"
+                                    }
+                                  }
+                                }
+                              },
+                              "button": {
+                                "description": "Optional. Button.",
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "description": "Name of the link",
+                                    "type": "string"
+                                  },
+                                  "open": {
+                                    "description": "Defines behavior when the user opens the link.",
+                                    "type": "object",
+                                    "properties": {}
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "media": {
+                            "description": "Response indicating a set of media to be played.",
+                            "type": "object",
+                            "properties": {
+                              "mediaType": {
+                                "description": "Media type of this response.",
+                                "type": "string",
+                                "enum": [
+                                  "MEDIA_TYPE_UNSPECIFIED",
+                                  "AUDIO",
+                                  "MEDIA_STATUS_ACK"
+                                ]
+                              },
+                              "startOffset": {
+                                "description": "Start offset of the first media object.",
+                                "type": "string",
+                                "format": "google-duration"
+                              },
+                              "optionalMediaControls": {
+                                "description": "Optional media control types this media response session can support. If set, request will be made to 3p when a certain media event happens. If not set, 3p must still handle two default control type, FINISHED and FAILED.",
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED",
+                                    "PAUSED",
+                                    "STOPPED"
+                                  ]
+                                }
+                              },
+                              "mediaObjects": {
+                                "description": "List of media objects.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "description": "Name of this media object.",
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "description": "Description of this media object.",
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "description": "The url pointing to the media content.",
+                                      "type": "string"
+                                    },
+                                    "image": {
+                                      "description": "Image to show with the media card.",
+                                      "type": "object",
+                                      "properties": {
+                                        "large": {
+                                          "description": "A large image, such as the cover of the album, etc.",
+                                          "type": "object",
+                                          "properties": {
+                                            "url": {
+                                              "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                              "type": "string"
+                                            },
+                                            "alt": {
+                                              "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                              "type": "string"
+                                            },
+                                            "height": {
+                                              "description": "Optional. The height of the image in pixels.",
+                                              "type": "integer",
+                                              "format": "int32"
+                                            },
+                                            "width": {
+                                              "description": "Optional. The width of the image in pixels.",
+                                              "type": "integer",
+                                              "format": "int32"
+                                            }
+                                          }
+                                        },
+                                        "icon": {
+                                          "description": "A small image icon displayed on the right from the title. It's resized to 36x36 dp.",
+                                          "type": "object",
+                                          "properties": {
+                                            "url": {
+                                              "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                              "type": "string"
+                                            },
+                                            "alt": {
+                                              "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                              "type": "string"
+                                            },
+                                            "height": {
+                                              "description": "Optional. The height of the image in pixels.",
+                                              "type": "integer",
+                                              "format": "int32"
+                                            },
+                                            "width": {
+                                              "description": "Optional. The width of the image in pixels.",
+                                              "type": "integer",
+                                              "format": "int32"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "list": {
+                            "description": "A card for presenting a list of options to select from.",
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "description": "Optional. Title of the list.",
+                                "type": "string"
+                              },
+                              "subtitle": {
+                                "description": "Optional. Subtitle of the list.",
+                                "type": "string"
+                              },
+                              "items": {
+                                "description": "Required. List items.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "description": "Required. The NLU key that matches the entry key name in the associated type. When item tapped, this key will be posted back as a select option parameter.",
+                                      "type": "string"
+                                    },
+                                    "title": {
+                                      "description": "Required. Title of the item. When tapped, this text will be posted back to the conversation verbatim as if the user had typed it. Each title must be unique among the set of items.",
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "description": "Optional. Body text of the item.",
+                                      "type": "string"
+                                    },
+                                    "image": {
+                                      "description": "Optional. Item image.",
+                                      "type": "object",
+                                      "properties": {
+                                        "url": {
+                                          "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                          "type": "string"
+                                        },
+                                        "alt": {
+                                          "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                          "type": "string"
+                                        },
+                                        "height": {
+                                          "description": "Optional. The height of the image in pixels.",
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "width": {
+                                          "description": "Optional. The width of the image in pixels.",
+                                          "type": "integer",
+                                          "format": "int32"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "collection": {
+                            "description": "A card presenting a list of options to select from.",
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "description": "Optional. Title of the collection.",
+                                "type": "string"
+                              },
+                              "subtitle": {
+                                "description": "Optional. Subtitle of the collection.",
+                                "type": "string"
+                              },
+                              "items": {
+                                "description": "Required. Collection items.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "description": "Required. The NLU key that matches the entry key name in the associated Type. When item tapped, this key will be posted back as a select option parameter.",
+                                      "type": "string"
+                                    },
+                                    "title": {
+                                      "description": "Required. Title of the item. When tapped, this text will be posted back to the conversation verbatim as if the user had typed it. Each title must be unique among the set of items.",
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "description": "Optional. Body text of the item.",
+                                      "type": "string"
+                                    },
+                                    "image": {
+                                      "description": "Optional. Item image.",
+                                      "type": "object",
+                                      "properties": {
+                                        "url": {
+                                          "description": "Required. The source url of the image. Images can be JPG, PNG and GIF (animated and non-animated). For example,`https://www.agentx.com/logo.png`.",
+                                          "type": "string"
+                                        },
+                                        "alt": {
+                                          "description": "Required. A text description of the image to be used for accessibility, e.g. screen readers.",
+                                          "type": "string"
+                                        },
+                                        "height": {
+                                          "description": "Optional. The height of the image in pixels.",
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "width": {
+                                          "description": "Optional. The width of the image in pixels.",
+                                          "type": "integer",
+                                          "format": "int32"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "imageFill": {
+                                "description": "Optional. Type of image display option.",
+                                "type": "string",
+                                "enum": [
+                                  "UNSPECIFIED",
+                                  "GRAY",
+                                  "WHITE",
+                                  "CROPPED"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "lastSimple": {
+                        "description": "Optional. The last voice and text-only response.",
+                        "type": "object",
+                        "properties": {
+                          "variants": {
+                            "description": "List of possible variants.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "speech": {
+                                  "description": "Optional. Represents the speech to be spoken to the user. Can be SSML or text to speech. By default, speech will be appended to previous Simple prompt's speech. If the \"override\" field in the containing prompt is \"true\" the speech defined in this field will override previous Simple prompt's speech.",
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "description": "Optional. Text to display in the chat bubble. If not given, a display rendering of the speech field above will be used. Limited to 640 chars. By default, text will be appended to previous Simple prompt's text. If the \"override\" field in the containing prompt is \"true\" the text defined in this field will override previous Simple prompt's text.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "suggestions": {
+                        "description": "Optional. Suggestions to be displayed to the user which will always appear at the end of the response. If the \"append\" field in the containing prompt is \"true\" the titles defined in this field will be added to titles defined in any previously defined suggestions prompts and duplicate values will be removed.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "description": "Required. The text shown in the suggestion chip. When tapped, this text will be posted back to the conversation verbatim as if the user had typed it. Each title must be unique among the set of suggestion chips. Max 25 chars",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "link": {
+                        "description": "Optional. An additional suggestion chip that can link out to the associated app or site. The chip will be rendered with the title \"Open \". Max 20 chars.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the link",
+                            "type": "string"
+                          },
+                          "open": {
+                            "description": "Defines behavior when the user opens the link.",
+                            "type": "object",
+                            "properties": {}
+                          }
+                        }
+                      },
+                      "override": {
+                        "description": "Optional. Mode for how this messages should be merged with previously defined messages. \"true\" will clear all previously defined messages (first and last simple, content, suggestions link and canvas) and add messages defined in this prompt. \"false\" will add messages defined in this prompt to messages defined in previous responses. Setting this field to \"false\" will also enable appending to some fields inside Simple prompts, the Suggestions prompt and the Canvas prompt (part of the Content prompt). The Content and Link messages will always be overwritten if defined in the prompt. Default value is \"false\".",
+                        "type": "boolean"
+                      },
+                      "canvas": {
+                        "description": "A response to be used for interactive canvas experience.",
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "description": "Required. URL of the web view to load.",
+                            "type": "string"
+                          },
+                          "data": {
+                            "description": "Optional. JSON data to be passed through to the immersive experience web page as an event. If the \"override\" field in the containing prompt is \"false\" data values defined in this Canvas prompt will be added after data values defined in previous Canvas prompts.",
+                            "type": "array",
+                            "items": {}
+                          },
+                          "suppressMic": {
+                            "description": "Optional. A true value means that the mic won't be opened for capturing input after this immersive response is presented to the user.",
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "staticPromptName": {
+          "description": "Name of the static prompt to invoke.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

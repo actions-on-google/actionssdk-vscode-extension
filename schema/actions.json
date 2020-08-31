@@ -1,1 +1,42 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkActions",
+  "properties": {
+    "custom": {
+      "description": "Map from intents to custom Actions to configure invocation for the project. The invocation intents could either be system or custom intents defined in the \"custom/intents/\" package. All intents defined here (system intents & custom intents) must have a corresponding intent file in the \"custom/global/\" package.",
+      "type": "object",
+      "properties": {
+        "engagement": {
+          "description": "Engagement mechanisms associated with the action to help end users subscribe to push notifications and daily updates. Note that the intent name specified in daily updates/push notifications slot config needs to match the intent corresponding to this action for end users to subscribe to these updates.",
+          "type": "object",
+          "properties": {
+            "title": {
+              "description": "The title of the engagement that will be sent to end users asking for their permission to receive updates. The prompt sent to end users for daily updates will look like \"What time would you like me to send your daily {title}\" and for push notifications will look like \"Is it ok if I send push notifications for {title}\". **This field is localizable.**",
+              "type": "string"
+            },
+            "pushNotification": {
+              "description": "Push notification settings that this engagement supports.",
+              "type": "object",
+              "properties": {}
+            },
+            "dailyUpdate": {
+              "description": "Daily update settings that this engagement supports.",
+              "type": "object",
+              "properties": {}
+            },
+            "actionLink": {
+              "description": "Link config for an action which determines whether sharing links is enabled for the action and if so, contains the user friendly display name for the link.",
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "User friendly display title for the link.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

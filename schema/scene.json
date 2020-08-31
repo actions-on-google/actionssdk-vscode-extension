@@ -1,1 +1,312 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkInteractionmodelScene",
+  "properties": {
+    "onEnter": {
+      "description": "Handler to invoke when transitioning into this scene.",
+      "type": "object",
+      "properties": {
+        "webhookHandler": {
+          "description": "Name of the webhook handler to call.",
+          "type": "string"
+        },
+        "staticPrompt": {
+          "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+          "type": "object",
+          "properties": {}
+        },
+        "staticPromptName": {
+          "description": "Name of the static prompt to invoke.",
+          "type": "string"
+        }
+      }
+    },
+    "intentEvents": {
+      "description": "The list of events that trigger based on intents. These events can be triggered at any time after the on_load Handler has been called. Important - these events define the set of intents which are scoped to this scene and will take precedence over any globally defined events that have the same intents or their triggering phrases. Intent names must be unique within a scene.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intent": {
+            "description": "Required. Intent triggering the event.",
+            "type": "string"
+          },
+          "transitionToScene": {
+            "description": "Optional. Destination scene which the conversation should jump to. The state of the current scene is destroyed on the transition.",
+            "type": "string"
+          },
+          "handler": {
+            "description": "Optional. Event handler which is triggered when the intent is matched. Should execute before transitioning to the destination scene. Useful to generate prompts in response to events.",
+            "type": "object",
+            "properties": {
+              "webhookHandler": {
+                "description": "Name of the webhook handler to call.",
+                "type": "string"
+              },
+              "staticPrompt": {
+                "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                "type": "object",
+                "properties": {}
+              },
+              "staticPromptName": {
+                "description": "Name of the static prompt to invoke.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "conditionalEvents": {
+      "description": "The list of events to trigger based on conditional statements. These are evaluated after the form has been filled or immediately after on_load if this scene does not have a form (evaluation is only done once). Only the first matching event will be triggered.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "description": "Required. Filter condition for this event to trigger. If condition is evaluated to true then the associated `handler` will be triggered. The following variable references are supported: $session - To reference data in session storage. $user - To reference data in user storage. The following boolean operators are supported (with examples): && - session.params.counter > 0 && session.params.counter < 100 || - session.params.foo == \"John\" || session.params.counter == \"Adam\" ! - !(session.params.counter == 5) The following comparisons are supported: ==, !=, <, >, <=, >= The following list and string operators are supported (with examples): in - \"Watermelon\" in session.params.fruitList size - size(session.params.fruitList) > 2 substring - session.params.fullName.contains(\"John\")",
+            "type": "string"
+          },
+          "transitionToScene": {
+            "description": "Optional. Destination scene which the conversation should jump to when the associated condition is evaluated to true. The state of the current scene is destroyed on the transition.",
+            "type": "string"
+          },
+          "handler": {
+            "description": "Optional. Event handler which is triggered when the associated condition is evaluated to true. Should execute before transitioning to the destination scene. Useful to generate Prompts in response to events.",
+            "type": "object",
+            "properties": {
+              "webhookHandler": {
+                "description": "Name of the webhook handler to call.",
+                "type": "string"
+              },
+              "staticPrompt": {
+                "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                "type": "object",
+                "properties": {}
+              },
+              "staticPromptName": {
+                "description": "Name of the static prompt to invoke.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "slots": {
+      "description": "Ordered list of slots. Each slot defines the type of data that it will resolve and configuration to customize the experience of this resolution (e.g. prompts).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Required. Name of the slot.",
+            "type": "string"
+          },
+          "type": {
+            "description": "Required. Declares the data type of this slot.",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Required. Name of a built-in type or custom type of the parameter. Examples: \"PizzaToppings\", \"actions.type.Number\"",
+                "type": "string"
+              },
+              "list": {
+                "description": "Optional. Indicates whether the data type represents a list of values.",
+                "type": "boolean"
+              }
+            }
+          },
+          "required": {
+            "description": "Optional. Indicates whether the slot is required to be filled before advancing. Required slots that are not filled will trigger a customizable prompt to the user.",
+            "type": "boolean"
+          },
+          "promptSettings": {
+            "description": "Optional. Registers Prompts for different stages of slot filling.",
+            "type": "object",
+            "properties": {
+              "initialPrompt": {
+                "description": "Prompt for the slot value itself. Example: \"What size did you want?\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              },
+              "noMatchPrompt1": {
+                "description": "Prompt to give when the user's input does not match the expected value type for the slot for the first time. Example: \"Sorry, I didn't get that.\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              },
+              "noMatchPrompt2": {
+                "description": "Prompt to give when the user's input does not match the expected value type for the slot for the second time. Example: \"Sorry, I didn't get that.\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              },
+              "noMatchFinalPrompt": {
+                "description": "Prompt to give when the user's input does not match the expected value type for the slot for the last time. Example: \"Sorry, I didn't get that.\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              },
+              "noInputPrompt1": {
+                "description": "Prompt to give when the user does not provide an input for the first time. Example: \"Sorry, I didn't get that.\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              },
+              "noInputPrompt2": {
+                "description": "Prompt to give when the user does not provide an input for the second time. Example: \"Sorry, I didn't get that.\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              },
+              "noInputFinalPrompt": {
+                "description": "Prompt to give when the user does not provide an input for the last time. Example: \"Sorry, I didn't get that.\"",
+                "type": "object",
+                "properties": {
+                  "webhookHandler": {
+                    "description": "Name of the webhook handler to call.",
+                    "type": "string"
+                  },
+                  "staticPrompt": {
+                    "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "staticPromptName": {
+                    "description": "Name of the static prompt to invoke.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "commitBehavior": {
+            "description": "Optional. Commit behavior associated with the slot.",
+            "type": "object",
+            "properties": {
+              "writeSessionParam": {
+                "description": "The session parameter to write the slot value after it is filled. Note that nested paths are not currently supported. \"$$\" is used to write the slot value to a session parameter with same name as the slot. Eg: write_session_param = \"fruit\" corresponds to \"$session.params.fruit\". write_session_param = \"ticket\" corresponds to \"$session.params.ticket\".",
+                "type": "string"
+              }
+            }
+          },
+          "config": {
+            "description": "Optional. Additional configuration associated with the slot which is used for filling the slot. The format of the config is specific to the type of the slot. Resource references to user or session parameter can be added to this config. This config is needed for filling slots related to transactions and user engagement. Example: For a slot of type actions.type.CompletePurchaseValue, the following config proposes a digital good order with a reference to a client defined session parameter `userSelectedSkuId`: { \"@type\": \"type.googleapis.com/ google.actions.transactions.v3.CompletePurchaseValueSpec\", \"skuId\": { \"skuType\": \"SKU_TYPE_IN_APP\", \"id\": \"$session.params.userSelectedSkuId\", \"packageName\": \"com.example.company\" } }"
+          },
+          "defaultValue": {
+            "description": "Optional. Configuration to populate a default value for this slot.",
+            "type": "object",
+            "properties": {
+              "sessionParam": {
+                "description": "Optional. The session parameter to be used to initialize the slot value, if it has a non-empty value. The type of the value must match the type of the slot. Note that nested paths are not currently supported. Eg: session_param = \"fruit\" corresponds to \"$session.params.fruit\". session_param = \"ticket\" corresponds to \"$session.params.ticket\".",
+                "type": "string"
+              },
+              "constant": {
+                "description": "Optional. Constant default value for the slot. This will only be used if a value for this slot was not populated through the `session_param`. The type for this value must match the type of the slot."
+              }
+            }
+          }
+        }
+      }
+    },
+    "onSlotUpdated": {
+      "description": "Handler called when there is a change in state of a slot not caused by updates within another Handler. This allows slots to be invalidated, the scene invalidated or other changes to scene state.",
+      "type": "object",
+      "properties": {
+        "webhookHandler": {
+          "description": "Name of the webhook handler to call.",
+          "type": "string"
+        },
+        "staticPrompt": {
+          "description": "Inlined static prompt. Can contain references to string resources in bundles.",
+          "type": "object",
+          "properties": {}
+        },
+        "staticPromptName": {
+          "description": "Name of the static prompt to invoke.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

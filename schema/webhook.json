@@ -1,1 +1,52 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkWebhook",
+  "properties": {
+    "handlers": {
+      "description": "List of handlers for this webhook.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Required. Name of the handler. Must be unique across all handlers the Actions project. You can check the name of this handler to invoke the correct function in your fulfillment source code.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "httpsEndpoint": {
+      "description": "Custom webhook HTTPS endpoint.",
+      "type": "object",
+      "properties": {
+        "baseUrl": {
+          "description": "The HTTPS base URL for your fulfillment endpoint (HTTP is not supported). Handler names are appended to the base URL path after a colon (following the style guide in https://cloud.google.com/apis/design/custom_methods). For example a base URL of 'https://gactions.service.com/api' would receive requests with URL 'https://gactions.service.com/api:'.",
+          "type": "string"
+        },
+        "httpHeaders": {
+          "description": "Map of HTTP parameters to be included in the POST request.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "properties": {}
+        },
+        "endpointApiVersion": {
+          "description": "Version of the protocol used by the endpoint. This is the protocol shared by all fulfillment types and not specific to Google fulfillment type.",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "inlineCloudFunction": {
+      "description": "Metadata for cloud function deployed from code in the webhooks folder.",
+      "type": "object",
+      "properties": {
+        "executeFunction": {
+          "description": "The name of the Cloud Function entry point. The value of this field should match the name of the method exported from the source code.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

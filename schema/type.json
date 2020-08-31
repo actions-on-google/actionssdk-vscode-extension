@@ -1,1 +1,108 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoogleActionsSdkInteractionmodelTypeType",
+  "properties": {
+    "synonym": {
+      "description": "Synonyms type, which is essentially an enum.",
+      "type": "object",
+      "properties": {
+        "matchType": {
+          "description": "Optional. The match type for the synonym.",
+          "type": "string",
+          "enum": [
+            "UNSPECIFIED",
+            "EXACT_MATCH",
+            "FUZZY_MATCH"
+          ]
+        },
+        "entities": {
+          "description": "Required. Named map of synonym entities.",
+          "type": "object",
+          "properties": {
+            "display": {
+              "description": "Optional. The entity display details.",
+              "type": "object",
+              "properties": {
+                "iconTitle": {
+                  "description": "Optional. Title of the icon.",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "description": "Required. Url of the icon.",
+                  "type": "string"
+                }
+              }
+            },
+            "synonyms": {
+              "description": "Optional. The list of synonyms for the entity. **This field is localizable.**",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "regularExpression": {
+      "description": "Regex type, allows regular expression matching.",
+      "type": "object",
+      "properties": {
+        "entities": {
+          "description": "Required. Named map of entities which each contain Regex strings.",
+          "type": "object",
+          "properties": {
+            "display": {
+              "description": "Optional. Elements that will be displayed on the canvas once an entity is extracted from a query. Only relevant for canvas enabled apps.",
+              "type": "object",
+              "properties": {
+                "iconTitle": {
+                  "description": "Optional. Title of the icon.",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "description": "Required. Url of the icon.",
+                  "type": "string"
+                }
+              }
+            },
+            "regularExpressions": {
+              "description": "Required. Uses RE2 regex syntax (See https://github.com/google/re2/wiki/Syntax for more details)",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "freeText": {
+      "description": "FreeText type.",
+      "type": "object",
+      "properties": {
+        "display": {
+          "description": "Optional. Elements that will be displayed on the canvas once an entity is extracted from a query. Only relevant for canvas enabled apps.",
+          "type": "object",
+          "properties": {
+            "iconTitle": {
+              "description": "Optional. Title of the icon.",
+              "type": "string"
+            },
+            "iconUrl": {
+              "description": "Required. Url of the icon.",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "exclusions": {
+      "description": "Set of exceptional words/phrases that shouldn't be matched by type. Note: If word/phrase is matched by the type but listed as an exclusion it won't be returned in parameter extraction result. **This field is localizable.**",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

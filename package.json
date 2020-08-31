@@ -1,9 +1,9 @@
 {
   "name": "actions-sdk-vscode-extension",
   "displayName": "Actions SDK",
-  "description": "VSCode extension for Actions SDK",
-  "version": "0.0.1",
-  "publisher": "Google LLC",
+  "description": "VS Code extension for Actions SDK",
+  "version": "0.5.0",
+  "publisher": "Google",
   "engines": {
     "vscode": "^1.28.0"
   },
