@@ -1,6 +1,6 @@
 {
-  "GoogleActionsSdkManifest": {
-    "prefix": "GoogleActionsSdkManifest",
+  "Manifest": {
+    "prefix": "Manifest",
     "scope": "yml,yaml",
     "body": [
       "version: null",
@@ -8,8 +8,8 @@
     ],
     "description": "Contains information that's \"transportable\" i.e. not specific to any given project and can be moved between projects."
   },
-  "GoogleActionsSdkActions": {
-    "prefix": "GoogleActionsSdkActions",
+  "Actions": {
+    "prefix": "Actions",
     "scope": "yml,yaml",
     "body": [
       "custom:",
@@ -23,8 +23,8 @@
     ],
     "description": "Represents the list of Actions defined in a project."
   },
-  "GoogleActionsSdkActionsCustomAction": {
-    "prefix": "GoogleActionsSdkActionsCustomAction",
+  "ActionsCustomAction": {
+    "prefix": "ActionsCustomAction",
     "scope": "yml,yaml",
     "body": [
       "engagement:",
@@ -37,8 +37,8 @@
     ],
     "description": "Details regarding a custom action."
   },
-  "GoogleActionsSdkActionsEngagement": {
-    "prefix": "GoogleActionsSdkActionsEngagement",
+  "ActionsEngagement": {
+    "prefix": "ActionsEngagement",
     "scope": "yml,yaml",
     "body": [
       "actionLink:",
@@ -50,8 +50,8 @@
     ],
     "description": "Defines the engagement mechanisms associated with this action. This allows end users to subscribe to push notification and daily update."
   },
-  "GoogleActionsSdkActionsEngagementPushNotification": {
-    "prefix": "GoogleActionsSdkActionsEngagementPushNotification",
+  "ActionsEngagementPushNotification": {
+    "prefix": "ActionsEngagementPushNotification",
     "scope": "yml,yaml",
     "body": [
       "{}",
@@ -59,8 +59,8 @@
     ],
     "description": "Defines push notification settings that this engagement supports."
   },
-  "GoogleActionsSdkActionsEngagementDailyUpdate": {
-    "prefix": "GoogleActionsSdkActionsEngagementDailyUpdate",
+  "ActionsEngagementDailyUpdate": {
+    "prefix": "ActionsEngagementDailyUpdate",
     "scope": "yml,yaml",
     "body": [
       "{}",
@@ -68,8 +68,8 @@
     ],
     "description": "Defines daily update settings that this engagement supports."
   },
-  "GoogleActionsSdkActionsEngagementActionLink": {
-    "prefix": "GoogleActionsSdkActionsEngagementActionLink",
+  "ActionsEngagementActionLink": {
+    "prefix": "ActionsEngagementActionLink",
     "scope": "yml,yaml",
     "body": [
       "title: null",
@@ -77,8 +77,8 @@
     ],
     "description": "Indicates whether sharing links is enabled for this action and the corresponding settings. Action links are used to deep link a user into a specific action."
   },
-  "GoogleActionsSdkSettings": {
-    "prefix": "GoogleActionsSdkSettings",
+  "Settings": {
+    "prefix": "Settings",
     "scope": "yml,yaml",
     "body": [
       "accountLinking:",
@@ -131,8 +131,8 @@
     ],
     "description": "Represents settings of an Actions project that are not locale specific."
   },
-  "GoogleActionsSdkSurfaceRequirements": {
-    "prefix": "GoogleActionsSdkSurfaceRequirements",
+  "SurfaceRequirements": {
+    "prefix": "SurfaceRequirements",
     "scope": "yml,yaml",
     "body": [
       "minimumRequirements: null",
@@ -140,8 +140,8 @@
     ],
     "description": "Contains a set of requirements that the client surface must support to invoke Actions in your project."
   },
-  "GoogleActionsSdkCapabilityRequirement": {
-    "prefix": "GoogleActionsSdkCapabilityRequirement",
+  "CapabilityRequirement": {
+    "prefix": "CapabilityRequirement",
     "scope": "yml,yaml",
     "body": [
       "capability: null",
@@ -149,8 +149,8 @@
     ],
     "description": "Represents a requirement about the availability of a given capability."
   },
-  "GoogleActionsSdkLocalizedSettings": {
-    "prefix": "GoogleActionsSdkLocalizedSettings",
+  "LocalizedSettings": {
+    "prefix": "LocalizedSettings",
     "scope": "yml,yaml",
     "body": [
       "developerEmail: null",
@@ -177,8 +177,8 @@
     ],
     "description": "Represents settings of an Actions project that are specific to a user locale. In this instance, user means the end user who invokes your Actions. **This message is localizable.**"
   },
-  "GoogleActionsSdkThemeCustomization": {
-    "prefix": "GoogleActionsSdkThemeCustomization",
+  "ThemeCustomization": {
+    "prefix": "ThemeCustomization",
     "scope": "yml,yaml",
     "body": [
       "backgroundColor: null",
@@ -191,8 +191,8 @@
     ],
     "description": "Styles applied to cards that are presented to users"
   },
-  "GoogleActionsSdkAccountLinking": {
-    "prefix": "GoogleActionsSdkAccountLinking",
+  "AccountLinking": {
+    "prefix": "AccountLinking",
     "scope": "yml,yaml",
     "body": [
       "appClientId: null",
@@ -208,8 +208,8 @@
     ],
     "description": "AccountLinking allows Google to guide the user to sign-in to the App's web services. For Google Sign In and OAuth + Google Sign In linking types, Google generates a client ID identifying your App to Google (\"Client ID issued by Google to your Actions\" on Console UI). This field is read-only and can be checked by navigating to the Console UI's Account Linking page. See: https://developers.google.com/assistant/identity/google-sign-in Note: For all account linking setting types (except for Google Sign In), you must provide a username and password for a test account in Settings.testing_instructions for the review team to review the app (they will not be visible to users)."
   },
-  "GoogleActionsSdkWebhook": {
-    "prefix": "GoogleActionsSdkWebhook",
+  "Webhook": {
+    "prefix": "Webhook",
     "scope": "yml,yaml",
     "body": [
       "handlers: null",
@@ -224,8 +224,8 @@
     ],
     "description": "Metadata for different types of webhooks. If you're using `inlineCloudFunction`, your source code must be in a directory with the same name as the value for the `executeFunction` key. For example, a value of `my_webhook` for the`executeFunction` key would have a code structure like this: - /webhooks/my_webhook.yaml - /webhooks/my_webhook/index.js - /webhooks/my_webhook/package.json"
   },
-  "GoogleActionsSdkWebhookHandler": {
-    "prefix": "GoogleActionsSdkWebhookHandler",
+  "WebhookHandler": {
+    "prefix": "WebhookHandler",
     "scope": "yml,yaml",
     "body": [
       "name: null",
@@ -233,8 +233,8 @@
     ],
     "description": "Declares the name of the webhoook handler. A webhook can have multiple handlers registered. These handlers can be called from multiple places in your Actions project."
   },
-  "GoogleActionsSdkWebhookHttpsEndpoint": {
-    "prefix": "GoogleActionsSdkWebhookHttpsEndpoint",
+  "WebhookHttpsEndpoint": {
+    "prefix": "WebhookHttpsEndpoint",
     "scope": "yml,yaml",
     "body": [
       "baseUrl: null",
@@ -245,8 +245,8 @@
     ],
     "description": "REST endpoint to notify if you're not using the inline editor."
   },
-  "GoogleActionsSdkWebhookInlineCloudFunction": {
-    "prefix": "GoogleActionsSdkWebhookInlineCloudFunction",
+  "WebhookInlineCloudFunction": {
+    "prefix": "WebhookInlineCloudFunction",
     "scope": "yml,yaml",
     "body": [
       "executeFunction: null",
@@ -254,8 +254,8 @@
     ],
     "description": "Holds the metadata of an inline Cloud Function deployed from the webhooks folder."
   },
-  "GoogleActionsSdkInteractionmodelIntent": {
-    "prefix": "GoogleActionsSdkInteractionmodelIntent",
+  "Intent": {
+    "prefix": "Intent",
     "scope": "yml,yaml",
     "body": [
       "parameters: null",
@@ -264,8 +264,8 @@
     ],
     "description": "Intents map open-ended user input to structured objects. Spoken phrases are matched to intents with Google's Natural Language Understanding (NLU). Intent matches can trigger events in your conversation design to progress the user's conversation. The intent name is specified in the name of the file."
   },
-  "GoogleActionsSdkInteractionmodelIntentIntentParameter": {
-    "prefix": "GoogleActionsSdkInteractionmodelIntentIntentParameter",
+  "IntentIntentParameter": {
+    "prefix": "IntentIntentParameter",
     "scope": "yml,yaml",
     "body": [
       "name: null",
@@ -276,8 +276,8 @@
     ],
     "description": "Definition of a parameter which can be used inside training phrases."
   },
-  "GoogleActionsSdkInteractionmodelTypeClassReference": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeClassReference",
+  "TypeClassReference": {
+    "prefix": "TypeClassReference",
     "scope": "yml,yaml",
     "body": [
       "list: null",
@@ -286,8 +286,8 @@
     ],
     "description": "A reference to a class which is used to declare the type of a field or return value. Enums are also a type of class that can be referenced using ClassReference."
   },
-  "GoogleActionsSdkInteractionmodelTypeType": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeType",
+  "TypeType": {
+    "prefix": "TypeType",
     "scope": "yml,yaml",
     "body": [
       "exclusions: null",
@@ -312,8 +312,8 @@
     ],
     "description": "Declaration of a custom type, as opposed to built-in types. Types can be assigned to slots in a scene or parameters of an intent's training phrases. Practically, Types can be thought of as enums. Note, type name is specified in the name of the file."
   },
-  "GoogleActionsSdkInteractionmodelTypeSynonymType": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeSynonymType",
+  "TypeSynonymType": {
+    "prefix": "TypeSynonymType",
     "scope": "yml,yaml",
     "body": [
       "entities:",
@@ -326,8 +326,8 @@
     ],
     "description": "Type that matches text by set of synonyms."
   },
-  "GoogleActionsSdkInteractionmodelTypeSynonymTypeEntity": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeSynonymTypeEntity",
+  "TypeSynonymTypeEntity": {
+    "prefix": "TypeSynonymTypeEntity",
     "scope": "yml,yaml",
     "body": [
       "display:",
@@ -338,8 +338,8 @@
     ],
     "description": "Represents a synonym entity field that contains the details of a single entry inside the type."
   },
-  "GoogleActionsSdkInteractionmodelTypeEntityDisplay": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeEntityDisplay",
+  "TypeEntityDisplay": {
+    "prefix": "TypeEntityDisplay",
     "scope": "yml,yaml",
     "body": [
       "iconTitle: null",
@@ -348,8 +348,8 @@
     ],
     "description": "Elements that will be displayed on the canvas once a particular type's entity is extracted from a query. Only relevant for canvas enabled apps. **This message is localizable.**"
   },
-  "GoogleActionsSdkInteractionmodelTypeRegularExpressionType": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeRegularExpressionType",
+  "TypeRegularExpressionType": {
+    "prefix": "TypeRegularExpressionType",
     "scope": "yml,yaml",
     "body": [
       "entities:",
@@ -361,8 +361,8 @@
     ],
     "description": "Type that matches text by regular expressions. **This message is localizable.**"
   },
-  "GoogleActionsSdkInteractionmodelTypeRegularExpressionTypeEntity": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeRegularExpressionTypeEntity",
+  "TypeRegularExpressionTypeEntity": {
+    "prefix": "TypeRegularExpressionTypeEntity",
     "scope": "yml,yaml",
     "body": [
       "display:",
@@ -373,8 +373,8 @@
     ],
     "description": "Represents an entity object that contains the regular expression that is used for comparison."
   },
-  "GoogleActionsSdkInteractionmodelTypeFreeTextType": {
-    "prefix": "GoogleActionsSdkInteractionmodelTypeFreeTextType",
+  "TypeFreeTextType": {
+    "prefix": "TypeFreeTextType",
     "scope": "yml,yaml",
     "body": [
       "display:",
@@ -384,8 +384,8 @@
     ],
     "description": "Type that matches any text if surrounding words context is close to provided training examples."
   },
-  "GoogleActionsSdkInteractionmodelGlobalIntentEvent": {
-    "prefix": "GoogleActionsSdkInteractionmodelGlobalIntentEvent",
+  "GlobalIntentEvent": {
+    "prefix": "GlobalIntentEvent",
     "scope": "yml,yaml",
     "body": [
       "handler:",
@@ -398,8 +398,8 @@
     ],
     "description": "Defines a global intent handler. Global intent events are scoped to the entire Actions project and may be overridden by intent handlers in a scene. Intent names must be unique within an Actions project. Global intents can be matched anytime during a session, allowing users to access common flows like \"get help\" or \"go back home.\" They can also be used to deep link users into specific flows when they invoke an Action. Note, the intent name is specified in the name of the file."
   },
-  "GoogleActionsSdkInteractionmodelEventHandler": {
-    "prefix": "GoogleActionsSdkInteractionmodelEventHandler",
+  "EventHandler": {
+    "prefix": "EventHandler",
     "scope": "yml,yaml",
     "body": [
       "staticPrompt:",
@@ -410,8 +410,8 @@
     ],
     "description": "Defines a handler to be executed after an event. Examples of events are intent and condition based events in a scene."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticPrompt",
+  "PromptStaticPrompt": {
+    "prefix": "PromptStaticPrompt",
     "scope": "yml,yaml",
     "body": [
       "candidates: null",
@@ -419,8 +419,8 @@
     ],
     "description": "Represents a list of prompt candidates, one of which will be selected as the prompt to be shown in the response to the user. **This message is localizable.**"
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticPromptStaticPromptCandidate": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticPromptStaticPromptCandidate",
+  "PromptStaticPromptStaticPromptCandidate": {
+    "prefix": "PromptStaticPromptStaticPromptCandidate",
     "scope": "yml,yaml",
     "body": [
       "promptResponse:",
@@ -496,8 +496,8 @@
     ],
     "description": "Represents a static prompt candidate."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticPromptSelector": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticPromptSelector",
+  "PromptStaticPromptSelector": {
+    "prefix": "PromptStaticPromptSelector",
     "scope": "yml,yaml",
     "body": [
       "surfaceCapabilities:",
@@ -506,8 +506,8 @@
     ],
     "description": "Defines the criteria for whether a prompt matches a request."
   },
-  "GoogleActionsSdkInteractionmodelPromptSurfaceCapabilities": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptSurfaceCapabilities",
+  "PromptSurfaceCapabilities": {
+    "prefix": "PromptSurfaceCapabilities",
     "scope": "yml,yaml",
     "body": [
       "capabilities: null",
@@ -515,8 +515,8 @@
     ],
     "description": "Represents the surface the user is using to make a request to the Action."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticPromptStaticPromptCandidateStaticPromptResponse": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticPromptStaticPromptCandidateStaticPromptResponse",
+  "PromptStaticPromptStaticPromptCandidateStaticPromptResponse": {
+    "prefix": "PromptStaticPromptStaticPromptCandidateStaticPromptResponse",
     "scope": "yml,yaml",
     "body": [
       "canvas:",
@@ -588,8 +588,8 @@
     ],
     "description": "Represents structured responses to send to the user, such as text, speech, cards, canvas data, suggestion chips, etc."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticSimplePrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticSimplePrompt",
+  "PromptStaticSimplePrompt": {
+    "prefix": "PromptStaticSimplePrompt",
     "scope": "yml,yaml",
     "body": [
       "variants: null",
@@ -597,8 +597,8 @@
     ],
     "description": "Represents a simple prompt to be send to a user."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticSimplePromptVariant": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticSimplePromptVariant",
+  "PromptStaticSimplePromptVariant": {
+    "prefix": "PromptStaticSimplePromptVariant",
     "scope": "yml,yaml",
     "body": [
       "speech: null",
@@ -607,8 +607,8 @@
     ],
     "description": "Represents a variant which is part of the simple prompt."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticContentPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticContentPrompt",
+  "PromptStaticContentPrompt": {
+    "prefix": "PromptStaticContentPrompt",
     "scope": "yml,yaml",
     "body": [
       "card:",
@@ -664,8 +664,8 @@
     ],
     "description": "A placeholder for the Content part of a StaticPrompt."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticCardPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticCardPrompt",
+  "PromptStaticCardPrompt": {
+    "prefix": "PromptStaticCardPrompt",
     "scope": "yml,yaml",
     "body": [
       "button:",
@@ -686,8 +686,8 @@
     ],
     "description": "A basic card for displaying some information, e.g. an image and/or text."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticImagePrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticImagePrompt",
+  "PromptStaticImagePrompt": {
+    "prefix": "PromptStaticImagePrompt",
     "scope": "yml,yaml",
     "body": [
       "alt: null",
@@ -698,8 +698,8 @@
     ],
     "description": "An image displayed in the card."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticLinkPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticLinkPrompt",
+  "PromptStaticLinkPrompt": {
+    "prefix": "PromptStaticLinkPrompt",
     "scope": "yml,yaml",
     "body": [
       "name: null",
@@ -710,8 +710,8 @@
     ],
     "description": "Defines a link which will be displayed as a suggestion chip and can be opened by the user."
   },
-  "GoogleActionsSdkInteractionmodelPromptOpenUrl": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptOpenUrl",
+  "PromptOpenUrl": {
+    "prefix": "PromptOpenUrl",
     "scope": "yml,yaml",
     "body": [
       "hint: null",
@@ -720,8 +720,8 @@
     ],
     "description": "Defines behavior when the user opens the link."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticTablePrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticTablePrompt",
+  "PromptStaticTablePrompt": {
+    "prefix": "PromptStaticTablePrompt",
     "scope": "yml,yaml",
     "body": [
       "button:",
@@ -742,8 +742,8 @@
     ],
     "description": "A table card for displaying a table of text."
   },
-  "GoogleActionsSdkInteractionmodelPromptTableColumn": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptTableColumn",
+  "PromptTableColumn": {
+    "prefix": "PromptTableColumn",
     "scope": "yml,yaml",
     "body": [
       "align: null",
@@ -752,8 +752,8 @@
     ],
     "description": "Describes a column in the table."
   },
-  "GoogleActionsSdkInteractionmodelPromptTableRow": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptTableRow",
+  "PromptTableRow": {
+    "prefix": "PromptTableRow",
     "scope": "yml,yaml",
     "body": [
       "cells: null",
@@ -762,8 +762,8 @@
     ],
     "description": "Describes a row in the table."
   },
-  "GoogleActionsSdkInteractionmodelPromptTableCell": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptTableCell",
+  "PromptTableCell": {
+    "prefix": "PromptTableCell",
     "scope": "yml,yaml",
     "body": [
       "text: null",
@@ -771,8 +771,8 @@
     ],
     "description": "Describes a cell in a row."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticMediaPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticMediaPrompt",
+  "PromptStaticMediaPrompt": {
+    "prefix": "PromptStaticMediaPrompt",
     "scope": "yml,yaml",
     "body": [
       "mediaObjects: null",
@@ -781,10 +781,10 @@
       "startOffset: null",
       ""
     ],
-    "description": "Contains information about the media, such as name, description, url, etc. Next id: 9"
+    "description": "Contains information about the media, such as name, description, url, etc. Next id: 10"
   },
-  "GoogleActionsSdkInteractionmodelPromptMediaObject": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptMediaObject",
+  "PromptMediaObject": {
+    "prefix": "PromptMediaObject",
     "scope": "yml,yaml",
     "body": [
       "description: null",
@@ -805,8 +805,8 @@
     ],
     "description": "Represents a single media object."
   },
-  "GoogleActionsSdkInteractionmodelPromptMediaImage": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptMediaImage",
+  "PromptMediaImage": {
+    "prefix": "PromptMediaImage",
     "scope": "yml,yaml",
     "body": [
       "icon:",
@@ -823,8 +823,8 @@
     ],
     "description": "Image to be shown inside a MediaPrompt."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticListPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticListPrompt",
+  "PromptStaticListPrompt": {
+    "prefix": "PromptStaticListPrompt",
     "scope": "yml,yaml",
     "body": [
       "items: null",
@@ -834,8 +834,8 @@
     ],
     "description": "A card for presenting a list of options to select from."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticListPromptListItem": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticListPromptListItem",
+  "PromptStaticListPromptListItem": {
+    "prefix": "PromptStaticListPromptListItem",
     "scope": "yml,yaml",
     "body": [
       "description: null",
@@ -850,8 +850,8 @@
     ],
     "description": "An item in the list."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticCollectionPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticCollectionPrompt",
+  "PromptStaticCollectionPrompt": {
+    "prefix": "PromptStaticCollectionPrompt",
     "scope": "yml,yaml",
     "body": [
       "imageFill: null",
@@ -862,8 +862,8 @@
     ],
     "description": "A card for presenting a collection of options to select from."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticCollectionPromptCollectionItem": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticCollectionPromptCollectionItem",
+  "PromptStaticCollectionPromptCollectionItem": {
+    "prefix": "PromptStaticCollectionPromptCollectionItem",
     "scope": "yml,yaml",
     "body": [
       "description: null",
@@ -878,8 +878,8 @@
     ],
     "description": "An item in the collection."
   },
-  "GoogleActionsSdkInteractionmodelPromptSuggestion": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptSuggestion",
+  "PromptSuggestion": {
+    "prefix": "PromptSuggestion",
     "scope": "yml,yaml",
     "body": [
       "title: null",
@@ -887,8 +887,8 @@
     ],
     "description": "Represents a suggestion chip, a UI element shown to the user for convenience."
   },
-  "GoogleActionsSdkInteractionmodelPromptStaticCanvasPrompt": {
-    "prefix": "GoogleActionsSdkInteractionmodelPromptStaticCanvasPrompt",
+  "PromptStaticCanvasPrompt": {
+    "prefix": "PromptStaticCanvasPrompt",
     "scope": "yml,yaml",
     "body": [
       "data: null",
@@ -898,8 +898,8 @@
     ],
     "description": "Represents a Interactive Canvas response to be sent to the user. This can be used in conjunction with the \"first_simple\" field in the containing prompt to speak to the user in addition to displaying a interactive canvas response."
   },
-  "GoogleActionsSdkInteractionmodelScene": {
-    "prefix": "GoogleActionsSdkInteractionmodelScene",
+  "Scene": {
+    "prefix": "Scene",
     "scope": "yml,yaml",
     "body": [
       "conditionalEvents: null",
@@ -919,8 +919,8 @@
     ],
     "description": "Scene is the basic unit of control flow when designing a conversation. They can be chained together with other scenes, generate prompts for the end user, and define slots. The scene name is specified in the name of the file."
   },
-  "GoogleActionsSdkInteractionmodelIntentEvent": {
-    "prefix": "GoogleActionsSdkInteractionmodelIntentEvent",
+  "IntentEvent": {
+    "prefix": "IntentEvent",
     "scope": "yml,yaml",
     "body": [
       "handler:",
@@ -934,8 +934,8 @@
     ],
     "description": "Registers Events which trigger as the result of an intent match."
   },
-  "GoogleActionsSdkInteractionmodelConditionalEvent": {
-    "prefix": "GoogleActionsSdkInteractionmodelConditionalEvent",
+  "ConditionalEvent": {
+    "prefix": "ConditionalEvent",
     "scope": "yml,yaml",
     "body": [
       "condition: null",
@@ -949,8 +949,8 @@
     ],
     "description": "Registers events that trigger as the result of a true condition."
   },
-  "GoogleActionsSdkInteractionmodelSlot": {
-    "prefix": "GoogleActionsSdkInteractionmodelSlot",
+  "Slot": {
+    "prefix": "Slot",
     "scope": "yml,yaml",
     "body": [
       "commitBehavior:",
@@ -1004,8 +1004,8 @@
     ],
     "description": "Configuration for a slot. Slots are single units of data that can be filled through natural language (ie. intent parameters), session parameters, and other sources."
   },
-  "GoogleActionsSdkInteractionmodelSlotPromptSettings": {
-    "prefix": "GoogleActionsSdkInteractionmodelSlotPromptSettings",
+  "SlotPromptSettings": {
+    "prefix": "SlotPromptSettings",
     "scope": "yml,yaml",
     "body": [
       "initialPrompt:",
@@ -1047,8 +1047,8 @@
     ],
     "description": "A single place where slot prompts are defined."
   },
-  "GoogleActionsSdkInteractionmodelSlotCommitBehavior": {
-    "prefix": "GoogleActionsSdkInteractionmodelSlotCommitBehavior",
+  "SlotCommitBehavior": {
+    "prefix": "SlotCommitBehavior",
     "scope": "yml,yaml",
     "body": [
       "writeSessionParam: null",
@@ -1056,8 +1056,8 @@
     ],
     "description": "Message describing the commit behavior associated with the slot after it has been successfully filled."
   },
-  "GoogleActionsSdkInteractionmodelSlotDefaultValue": {
-    "prefix": "GoogleActionsSdkInteractionmodelSlotDefaultValue",
+  "SlotDefaultValue": {
+    "prefix": "SlotDefaultValue",
     "scope": "yml,yaml",
     "body": [
       "constant: null",
@@ -1066,8 +1066,8 @@
     ],
     "description": "Configuration to populate a default value for this slot."
   },
-  "GoogleActionsSdkAccountLinkingSecret": {
-    "prefix": "GoogleActionsSdkAccountLinkingSecret",
+  "AccountLinkingSecret": {
+    "prefix": "AccountLinkingSecret",
     "scope": "yml,yaml",
     "body": [
       "encryptedClientSecret: null",
